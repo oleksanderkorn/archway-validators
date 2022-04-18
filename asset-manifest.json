@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/archway-validators/static/css/main.8e342c08.css",
-    "main.js": "/archway-validators/static/js/main.96dad600.js",
+    "main.js": "/archway-validators/static/js/main.5162af67.js",
     "static/js/787.f3bf4ee9.chunk.js": "/archway-validators/static/js/787.f3bf4ee9.chunk.js",
     "static/media/logo.svg": "/archway-validators/static/media/logo.54c06fad08be3873ee4c80a2f679e3ae.svg",
     "index.html": "/archway-validators/index.html",
     "main.8e342c08.css.map": "/archway-validators/static/css/main.8e342c08.css.map",
-    "main.96dad600.js.map": "/archway-validators/static/js/main.96dad600.js.map",
+    "main.5162af67.js.map": "/archway-validators/static/js/main.5162af67.js.map",
     "787.f3bf4ee9.chunk.js.map": "/archway-validators/static/js/787.f3bf4ee9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8e342c08.css",
-    "static/js/main.96dad600.js"
+    "static/js/main.5162af67.js"
   ]
 }
