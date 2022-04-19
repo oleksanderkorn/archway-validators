@@ -123,7 +123,13 @@ function App() {
             className="text-2xl font-extralight mr-3 hover:font-light text-slate-900 dark:text-white"
             to="/validators"
           >
-            Validators
+            Active Validators
+          </Link>
+          <Link
+            className="text-2xl font-extralight mr-3 hover:font-light text-slate-900 dark:text-white"
+            to="/inactive"
+          >
+            Inactive Validators
           </Link>
           {/* <Link
             className="text-2xl font-extralight mr-3 hover:font-light text-slate-900 dark:text-white"

@@ -3,9 +3,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Blocks from "./routes/blocks";
 import Validators from "./routes/validators";
-import Validator from "./routes/validator";
+import InactiveValidators from "./routes/inactives";
 
 const rootElement = document.getElementById("root");
 
@@ -17,6 +16,7 @@ root.render(
       <Route path="/" element={<App />}>
         {/* <Route path="blocks" element={<Blocks />} /> */}
         <Route path="validators" element={<Validators />} />
+        <Route path="inactive" element={<InactiveValidators />} />
         {/* <Route path="validators/:address" element={<Validator />} /> */}
         <Route
           path="*"

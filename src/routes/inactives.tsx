@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import useValidatorsNG from "../api/useValidators";
 
-export default function Validators() {
+export default function InactiveValidators() {
   const validators = useValidatorsNG();
 
   return (
@@ -10,9 +10,9 @@ export default function Validators() {
       className="text-slate-900 dark:text-white"
     >
       <h2>
-        Total Active (
+        Total Inactive (
         {validators
-          ? validators.filter((v) => v.status === "BOND_STATUS_BONDED").length
+          ? validators.filter((v) => v.status !== "BOND_STATUS_BONDED").length
           : 0}
         )
       </h2>
@@ -22,7 +22,7 @@ export default function Validators() {
             Pre-Genesis (
             {validators
               ? validators.filter(
-                  (v) => v.status === "BOND_STATUS_BONDED" && v.isGenesis
+                  (v) => v.status !== "BOND_STATUS_BONDED" && v.isGenesis
                 ).length
               : 0}
             )
@@ -41,7 +41,7 @@ export default function Validators() {
               {validators &&
                 validators
                   .filter(
-                    (v) => v.status === "BOND_STATUS_BONDED" && v.isGenesis
+                    (v) => v.status !== "BOND_STATUS_BONDED" && v.isGenesis
                   )
                   .sort((a, b) => (a < b ? -1 : 1))
                   .map((v, key) => {
@@ -72,7 +72,7 @@ export default function Validators() {
             Post-Genesis (
             {validators
               ? validators.filter(
-                  (v) => v.status === "BOND_STATUS_BONDED" && !v.isGenesis
+                  (v) => v.status !== "BOND_STATUS_BONDED" && !v.isGenesis
                 ).length
               : 0}
             )
@@ -82,7 +82,6 @@ export default function Validators() {
               <tr>
                 <th className="text-left">Moniker</th>
                 <th className="text-left">Address</th>
-                {/* <th className="text-right">Voting Power</th> */}
                 <th className="text-left">Balance</th>
               </tr>
             </thead>
@@ -90,7 +89,7 @@ export default function Validators() {
               {validators &&
                 validators
                   .filter(
-                    (v) => v.status === "BOND_STATUS_BONDED" && !v.isGenesis
+                    (v) => v.status !== "BOND_STATUS_BONDED" && !v.isGenesis
                   )
                   .sort((a, b) => (a < b ? -1 : 1))
                   .map((v, key) => {
