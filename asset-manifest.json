@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/archway-validators/static/css/main.815af715.css",
-    "main.js": "/archway-validators/static/js/main.6faf5b94.js",
+    "main.css": "/archway-validators/static/css/main.5d68b428.css",
+    "main.js": "/archway-validators/static/js/main.a18baf3a.js",
     "static/js/787.f3bf4ee9.chunk.js": "/archway-validators/static/js/787.f3bf4ee9.chunk.js",
     "static/media/logo.svg": "/archway-validators/static/media/logo.54c06fad08be3873ee4c80a2f679e3ae.svg",
     "index.html": "/archway-validators/index.html",
-    "main.815af715.css.map": "/archway-validators/static/css/main.815af715.css.map",
-    "main.6faf5b94.js.map": "/archway-validators/static/js/main.6faf5b94.js.map",
+    "main.5d68b428.css.map": "/archway-validators/static/css/main.5d68b428.css.map",
+    "main.a18baf3a.js.map": "/archway-validators/static/js/main.a18baf3a.js.map",
     "787.f3bf4ee9.chunk.js.map": "/archway-validators/static/js/787.f3bf4ee9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.815af715.css",
-    "static/js/main.6faf5b94.js"
+    "static/css/main.5d68b428.css",
+    "static/js/main.a18baf3a.js"
   ]
 }
