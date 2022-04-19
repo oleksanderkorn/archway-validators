@@ -1,8 +1,20 @@
+import { Transition } from "@headlessui/react";
+import { Fragment, useState } from "react";
+import CopyToClipboard from "react-copy-to-clipboard";
 import { Outlet } from "react-router-dom";
 import useValidatorsNG from "../api/useValidators";
 
 export default function InactiveValidators() {
   const validators = useValidatorsNG();
+
+  let [copiedAddress, setCopiedAddress] = useState("");
+
+  const onCopyDone = (addr: string) => {
+    setCopiedAddress(addr);
+    setTimeout(() => {
+      setCopiedAddress("");
+    }, 500);
+  };
 
   return (
     <main
@@ -30,11 +42,10 @@ export default function InactiveValidators() {
           <table className="table-auto">
             <thead>
               <tr>
+                <th className="text-left">Rank</th>
                 <th className="text-left">Moniker</th>
                 <th className="text-left">Address</th>
-                {/* <th className="text-right">Voting Power</th> */}
                 <th className="text-left">Balance</th>
-                {/* <th className="text-right">From genesis</th> */}
               </tr>
             </thead>
             <tbody>
@@ -47,20 +58,38 @@ export default function InactiveValidators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
-                        <td className="text-left">{v.moniker}</td>
-                        <td className="text-left">
-                          {/* <Link
-                          className="text font-extralight hover:font-light"
-                          to={`/validators/${v.account_address}`}
-                        > */}
-                          {v.account_address}
-                          {/* </Link> */}
+                        <td className="text-left">{key}</td>
+                        <td className={`text-left`}>
+                          {v.moniker}{" "}
+                          {v.jailed && (
+                            <span className="text-red-500">(Jailed)</span>
+                          )}
                         </td>
-                        {/* <td className="text-right">{v.voting_power_percent}%</td> */}
+                        <td className="text-left relative">
+                          <CopyToClipboard
+                            text={v.account_address}
+                            onCopy={() => onCopyDone(v.account_address)}
+                          >
+                            <p className="cursor-pointer hover:text-purple-900 hover:dark:text-purple-300">
+                              {v.account_address}
+                            </p>
+                          </CopyToClipboard>
+                          <Transition
+                            as={Fragment}
+                            show={copiedAddress === v.account_address}
+                            enter="transform transition duration-[200ms]"
+                            enterFrom="opacity-0 scale-50"
+                            enterTo="opacity-100 scale-100"
+                            leave="transform duration-200 transition ease-in-out"
+                            leaveFrom="opacity-100 scale-100 "
+                            leaveTo="opacity-0 scale-95 "
+                          >
+                            <div className="absolute cursor-default top-[0px] left-[-60px] px-1 py-1 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200">
+                              Copied
+                            </div>
+                          </Transition>
+                        </td>
                         <td className="text-left">{v.tokens}</td>
-                        {/* <td className="text-right">
-                          {v.isGenesis ? "Yes" : "No"}
-                        </td> */}
                       </tr>
                     );
                   })}
@@ -80,6 +109,7 @@ export default function InactiveValidators() {
           <table className="table-auto">
             <thead>
               <tr>
+                <th className="text-left">Rank</th>
                 <th className="text-left">Moniker</th>
                 <th className="text-left">Address</th>
                 <th className="text-left">Balance</th>
@@ -95,14 +125,36 @@ export default function InactiveValidators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
-                        <td className="text-left">{v.moniker}</td>
+                        <td className={`text-left`}>{key}</td>
                         <td className="text-left">
-                          {/* <Link
-                          className="text font-extralight hover:font-light"
-                          to={`/validators/${v.account_address}`}
-                        > */}
-                          {v.account_address}
-                          {/* </Link> */}
+                          {v.moniker}{" "}
+                          {v.jailed && (
+                            <span className="text-red-500">(Jailed)</span>
+                          )}
+                        </td>
+                        <td className="text-left relative">
+                          <CopyToClipboard
+                            text={v.account_address}
+                            onCopy={() => onCopyDone(v.account_address)}
+                          >
+                            <p className="cursor-pointer hover:text-purple-900 hover:dark:text-purple-300">
+                              {v.account_address}
+                            </p>
+                          </CopyToClipboard>
+                          <Transition
+                            as={Fragment}
+                            show={copiedAddress === v.account_address}
+                            enter="transform transition duration-[200ms]"
+                            enterFrom="opacity-0 scale-50"
+                            enterTo="opacity-100 scale-100"
+                            leave="transform duration-200 transition ease-in-out"
+                            leaveFrom="opacity-100 scale-100 "
+                            leaveTo="opacity-0 scale-95 "
+                          >
+                            <div className="absolute cursor-default top-[0px] left-[-60px] px-1 py-1 text-sm font-medium text-left text-purple-900 bg-purple-100 rounded-lg hover:bg-purple-200">
+                              Copied
+                            </div>
+                          </Transition>
                         </td>
                         {/* <td className="text-right">{v.voting_power_percent}%</td> */}
                         <td className="text-left">{v.tokens}</td>
