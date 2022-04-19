@@ -3,6 +3,7 @@ import useValidatorsNG from "../api/useValidators";
 import { Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { roundBalance } from "../util/utils";
 
 export default function Validators() {
   const validators = useValidatorsNG();
@@ -43,8 +44,8 @@ export default function Validators() {
             <table className="table-auto">
               <thead>
                 <tr>
-                  <th className="text-left">Rank</th>
-                  <th className="text-left">Moniker</th>
+                  <th className="text-left pr-1">Rank</th>
+                  <th className="text-left pr-2">Moniker</th>
                   <th className="text-left">Address</th>
                   <th className="text-left">Balance</th>
                 </tr>
@@ -60,13 +61,13 @@ export default function Validators() {
                       return (
                         <tr key={key}>
                           <td
-                            className={`text-left ${
+                            className={`text-left pr-1 ${
                               key < 120 ? "text-green-500" : ""
                             } `}
                           >
                             {key + 1}
                           </td>
-                          <td className="text-left">{v.moniker}</td>
+                          <td className="text-left pr-2">{v.moniker}</td>
                           <td className="text-left relative">
                             <CopyToClipboard
                               text={v.account_address}
@@ -91,7 +92,9 @@ export default function Validators() {
                               </div>
                             </Transition>
                           </td>
-                          <td className="text-left">{v.tokens}</td>
+                          <td className="text-left">
+                            {roundBalance(v.tokens)}
+                          </td>
                         </tr>
                       );
                     })}
@@ -111,8 +114,8 @@ export default function Validators() {
             <table className="table-auto">
               <thead>
                 <tr>
-                  <th className="text-left">Rank</th>
-                  <th className="text-left">Moniker</th>
+                  <th className="text-left pr-1">Rank</th>
+                  <th className="text-left pr-2">Moniker</th>
                   <th className="text-left">Address</th>
                   <th className="text-left">Balance</th>
                 </tr>
@@ -128,13 +131,13 @@ export default function Validators() {
                       return (
                         <tr key={key}>
                           <td
-                            className={`text-left ${
+                            className={`text-left pr-1 ${
                               key < 30 ? "text-green-500" : "text-gray-400"
                             } `}
                           >
                             {key + 1}
                           </td>
-                          <td className="text-left">{v.moniker}</td>
+                          <td className="text-left pr-2">{v.moniker}</td>
                           <td className="text-left relative">
                             <CopyToClipboard
                               text={v.account_address}
@@ -159,7 +162,9 @@ export default function Validators() {
                               </div>
                             </Transition>
                           </td>
-                          <td className="text-left">{v.tokens}</td>
+                          <td className="text-left">
+                            {roundBalance(v.tokens)}
+                          </td>
                         </tr>
                       );
                     })}

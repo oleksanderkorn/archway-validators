@@ -8,7 +8,7 @@ export interface ValidatorInfo {
   consensus_address: string;
   jailed: false;
   status: string;
-  tokens: number;
+  tokens: string;
   moniker: string;
   identity: "";
   avatar: string;

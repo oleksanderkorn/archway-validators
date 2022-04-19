@@ -3,6 +3,7 @@ import { Fragment, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Outlet } from "react-router-dom";
 import useValidatorsNG from "../api/useValidators";
+import { roundBalance } from "../util/utils";
 
 export default function InactiveValidators() {
   const validators = useValidatorsNG();
@@ -42,8 +43,8 @@ export default function InactiveValidators() {
           <table className="table-auto">
             <thead>
               <tr>
-                <th className="text-left">Rank</th>
-                <th className="text-left">Moniker</th>
+                <th className="text-left pr-1">Rank</th>
+                <th className="text-left pr-2">Moniker</th>
                 <th className="text-left">Address</th>
                 <th className="text-left">Balance</th>
               </tr>
@@ -58,8 +59,8 @@ export default function InactiveValidators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
-                        <td className="text-left">{key + 1}</td>
-                        <td className={`text-left`}>
+                        <td className="text-left pr-1">{key + 1}</td>
+                        <td className={`text-left pr-2`}>
                           {v.moniker}{" "}
                           {v.jailed && (
                             <span className="text-red-500">(Jailed)</span>
@@ -89,7 +90,7 @@ export default function InactiveValidators() {
                             </div>
                           </Transition>
                         </td>
-                        <td className="text-left">{v.tokens}</td>
+                        <td className="text-left">{roundBalance(v.tokens)}</td>
                       </tr>
                     );
                   })}
@@ -109,8 +110,8 @@ export default function InactiveValidators() {
           <table className="table-auto">
             <thead>
               <tr>
-                <th className="text-left">Rank</th>
-                <th className="text-left">Moniker</th>
+                <th className="text-left pr-1">Rank</th>
+                <th className="text-left pr-2">Moniker</th>
                 <th className="text-left">Address</th>
                 <th className="text-left">Balance</th>
               </tr>
@@ -125,8 +126,8 @@ export default function InactiveValidators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
-                        <td className="text-left">{key + 1}</td>
-                        <td className="text-left">
+                        <td className="text-left pr-1">{key + 1}</td>
+                        <td className="text-left pr-2">
                           {v.moniker}{" "}
                           {v.jailed && (
                             <span className="text-red-500">(Jailed)</span>
@@ -156,8 +157,7 @@ export default function InactiveValidators() {
                             </div>
                           </Transition>
                         </td>
-                        {/* <td className="text-right">{v.voting_power_percent}%</td> */}
-                        <td className="text-left">{v.tokens}</td>
+                        <td className="text-left">{roundBalance(v.tokens)}</td>
                       </tr>
                     );
                   })}

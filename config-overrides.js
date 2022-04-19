@@ -9,6 +9,7 @@ module.exports = function override(config, env) {
     https: false,
     zlib: require.resolve("browserify-zlib"),
     path: require.resolve("path-browserify"),
+    rsa: require.resolve("browserify-rsa"),
     stream: require.resolve("stream-browserify"),
     util: require.resolve("util/"),
     crypto: require.resolve("crypto-browserify"),
