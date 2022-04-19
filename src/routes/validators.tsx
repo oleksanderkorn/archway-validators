@@ -36,10 +36,11 @@ export default function Validators() {
           <table className="table-auto">
             <thead>
               <tr>
+                <th className="text-left">Moniker</th>
                 <th className="text-left">Address</th>
                 {/* <th className="text-right">Voting Power</th> */}
                 <th className="text-left">Balance</th>
-                <th className="text-right">From genesis</th>
+                {/* <th className="text-right">From genesis</th> */}
               </tr>
             </thead>
             <tbody>
@@ -52,6 +53,7 @@ export default function Validators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
+                        <td className="text-left">{v.moniker}</td>
                         <td className="text-left">
                           {/* <Link
                           className="text font-extralight hover:font-light"
@@ -62,9 +64,9 @@ export default function Validators() {
                         </td>
                         {/* <td className="text-right">{v.voting_power_percent}%</td> */}
                         <td className="text-left">{v.tokens}</td>
-                        <td className="text-right">
+                        {/* <td className="text-right">
                           {v.isGenesis ? "Yes" : "No"}
-                        </td>
+                        </td> */}
                       </tr>
                     );
                   })}
@@ -84,10 +86,10 @@ export default function Validators() {
           <table className="table-auto">
             <thead>
               <tr>
+                <th className="text-left">Moniker</th>
                 <th className="text-left">Address</th>
                 {/* <th className="text-right">Voting Power</th> */}
                 <th className="text-left">Balance</th>
-                <th className="text-right">From genesis</th>
               </tr>
             </thead>
             <tbody>
@@ -100,6 +102,7 @@ export default function Validators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
+                        <td className="text-left">{v.moniker}</td>
                         <td className="text-left">
                           {/* <Link
                           className="text font-extralight hover:font-light"
@@ -110,9 +113,6 @@ export default function Validators() {
                         </td>
                         {/* <td className="text-right">{v.voting_power_percent}%</td> */}
                         <td className="text-left">{v.tokens}</td>
-                        <td className="text-right">
-                          {v.isGenesis ? "Yes" : "No"}
-                        </td>
                       </tr>
                     );
                   })}
