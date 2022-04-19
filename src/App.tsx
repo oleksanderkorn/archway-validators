@@ -94,7 +94,7 @@ function App() {
   };
 
   return (
-    <div className="text-center bg-white dark:bg-slate-900 ">
+    <div className="text-center bg-white dark:bg-slate-900 w-fit sm:w-auto">
       <header className="flex justify-center items-center">
         <Link to="/">
           <img src={logo} className="m-3" alt="logo" />

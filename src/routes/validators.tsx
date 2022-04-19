@@ -16,7 +16,7 @@ export default function Validators() {
           : 0}
         )
       </h2>
-      <div className="flex justify-center">
+      <div className="flex justify-center flex-wrap">
         <div className="m-2">
           <h2>
             Pre-Genesis (
