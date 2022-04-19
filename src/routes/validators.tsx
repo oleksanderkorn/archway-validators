@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 import useValidatorsNG from "../api/useValidators";
 import { Transition } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Validators() {
   const validators = useValidatorsNG();
-  let [isShowing, setIsShowing] = useState(false);
 
   let [copiedAddress, setCopiedAddress] = useState("");
 
@@ -16,10 +15,6 @@ export default function Validators() {
       setCopiedAddress("");
     }, 500);
   };
-
-  useEffect(() => {
-    setIsShowing(true);
-  }, [validators]);
 
   return (
     <main
@@ -66,10 +61,10 @@ export default function Validators() {
                         <tr key={key}>
                           <td
                             className={`text-left ${
-                              key <= 120 ? "text-green-500" : ""
+                              key < 120 ? "text-green-500" : ""
                             } `}
                           >
-                            {key}
+                            {key + 1}
                           </td>
                           <td className="text-left">{v.moniker}</td>
                           <td className="text-left relative">
@@ -134,10 +129,10 @@ export default function Validators() {
                         <tr key={key}>
                           <td
                             className={`text-left ${
-                              key <= 30 ? "text-green-500" : "text-gray-400"
+                              key < 30 ? "text-green-500" : "text-gray-400"
                             } `}
                           >
-                            {key}
+                            {key + 1}
                           </td>
                           <td className="text-left">{v.moniker}</td>
                           <td className="text-left relative">

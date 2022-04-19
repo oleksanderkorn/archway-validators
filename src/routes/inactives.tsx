@@ -58,7 +58,7 @@ export default function InactiveValidators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
-                        <td className="text-left">{key}</td>
+                        <td className="text-left">{key + 1}</td>
                         <td className={`text-left`}>
                           {v.moniker}{" "}
                           {v.jailed && (
@@ -125,7 +125,7 @@ export default function InactiveValidators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
-                        <td className={`text-left`}>{key}</td>
+                        <td className="text-left">{key + 1}</td>
                         <td className="text-left">
                           {v.moniker}{" "}
                           {v.jailed && (
