@@ -65,7 +65,7 @@ export default function Validators() {
                               key < 120 ? "text-green-500" : ""
                             } `}
                           >
-                            {key + 1}
+                            {key + 1} ({v.rank})
                           </td>
                           <td className="text-left pr-2 hover:text-purple-900 hover:dark:text-purple-300">
                             <a
@@ -143,7 +143,7 @@ export default function Validators() {
                               key < 30 ? "text-green-500" : "text-gray-400"
                             } `}
                           >
-                            {key + 1}
+                            {key + 1} ({v.rank})
                           </td>
                           <td className="text-left pr-2 hover:text-purple-900 hover:dark:text-purple-300">
                             <a

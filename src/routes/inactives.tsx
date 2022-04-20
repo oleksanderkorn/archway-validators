@@ -66,7 +66,9 @@ export default function InactiveValidators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
-                        <td className="text-left pr-1">{key + 1}</td>
+                        <td className="text-left pr-1">
+                          {key + 1} ({v.rank})
+                        </td>
                         <td className="text-left pr-2 hover:text-purple-900 hover:dark:text-purple-300">
                           <a
                             href={`https://archway.explorers.guru/validator/${v.operator_address}`}
@@ -148,7 +150,9 @@ export default function InactiveValidators() {
                   .map((v, key) => {
                     return (
                       <tr key={key}>
-                        <td className="text-left pr-1">{key + 1}</td>
+                        <td className="text-left pr-1">
+                          {key + 1} ({v.rank})
+                        </td>
                         <td className="text-left pr-2 hover:text-purple-900 hover:dark:text-purple-300">
                           <a
                             href={`https://archway.explorers.guru/validator/${v.operator_address}`}
