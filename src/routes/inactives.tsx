@@ -38,6 +38,13 @@ export default function InactiveValidators() {
                   (v) => v.status !== "BOND_STATUS_BONDED" && v.isGenesis
                 ).length
               : 0}
+            ) Jailed (
+            {validators
+              ? validators.filter(
+                  (v) =>
+                    v.status !== "BOND_STATUS_BONDED" && v.isGenesis && v.jailed
+                ).length
+              : 0}
             )
           </h2>
           <table className="table-auto">
@@ -60,11 +67,17 @@ export default function InactiveValidators() {
                     return (
                       <tr key={key}>
                         <td className="text-left pr-1">{key + 1}</td>
-                        <td className={`text-left pr-2`}>
-                          {v.moniker}{" "}
-                          {v.jailed && (
-                            <span className="text-red-500">(Jailed)</span>
-                          )}
+                        <td className="text-left pr-2 hover:text-purple-900 hover:dark:text-purple-300">
+                          <a
+                            href={`https://archway.explorers.guru/validator/${v.operator_address}`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {v.moniker}{" "}
+                            {v.jailed && (
+                              <span className="text-red-500">(Jailed)</span>
+                            )}
+                          </a>
                         </td>
                         <td className="text-left relative">
                           <CopyToClipboard
@@ -105,6 +118,15 @@ export default function InactiveValidators() {
                   (v) => v.status !== "BOND_STATUS_BONDED" && !v.isGenesis
                 ).length
               : 0}
+            ) Jailed (
+            {validators
+              ? validators.filter(
+                  (v) =>
+                    v.status !== "BOND_STATUS_BONDED" &&
+                    !v.isGenesis &&
+                    v.jailed
+                ).length
+              : 0}
             )
           </h2>
           <table className="table-auto">
@@ -127,11 +149,17 @@ export default function InactiveValidators() {
                     return (
                       <tr key={key}>
                         <td className="text-left pr-1">{key + 1}</td>
-                        <td className="text-left pr-2">
-                          {v.moniker}{" "}
-                          {v.jailed && (
-                            <span className="text-red-500">(Jailed)</span>
-                          )}
+                        <td className="text-left pr-2 hover:text-purple-900 hover:dark:text-purple-300">
+                          <a
+                            href={`https://archway.explorers.guru/validator/${v.operator_address}`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {v.moniker}{" "}
+                            {v.jailed && (
+                              <span className="text-red-500">(Jailed)</span>
+                            )}
+                          </a>
                         </td>
                         <td className="text-left relative">
                           <CopyToClipboard

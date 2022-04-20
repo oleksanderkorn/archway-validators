@@ -67,7 +67,15 @@ export default function Validators() {
                           >
                             {key + 1}
                           </td>
-                          <td className="text-left pr-2">{v.moniker}</td>
+                          <td className="text-left pr-2 hover:text-purple-900 hover:dark:text-purple-300">
+                            <a
+                              href={`https://archway.explorers.guru/validator/${v.operator_address}`}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {v.moniker}
+                            </a>
+                          </td>
                           <td className="text-left relative">
                             <CopyToClipboard
                               text={v.account_address}
@@ -137,7 +145,15 @@ export default function Validators() {
                           >
                             {key + 1}
                           </td>
-                          <td className="text-left pr-2">{v.moniker}</td>
+                          <td className="text-left pr-2 hover:text-purple-900 hover:dark:text-purple-300">
+                            <a
+                              href={`https://archway.explorers.guru/validator/${v.operator_address}`}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {v.moniker}
+                            </a>
+                          </td>
                           <td className="text-left relative">
                             <CopyToClipboard
                               text={v.account_address}
