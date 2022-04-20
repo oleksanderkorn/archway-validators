@@ -8,6 +8,7 @@ import { ToriiInfo } from "./chain.info.torii";
 import { useState } from "react";
 import { AccountData, OfflineSigner } from "@cosmjs/proto-signing";
 import { fromHex } from "@cosmjs/encoding";
+import { useMatch } from "react-router-dom";
 
 declare global {
   interface Window {
@@ -32,7 +33,7 @@ function App() {
   const [logs, setLogs] = useState([]);
   const [accounts, setAccounts] = useState<readonly AccountData[]>();
   const [userAddress, setUserAddress] = useState<string>();
-
+  const isInactive = useMatch("inactive");
   const connectWallet = async () => {
     try {
       if (window) {
@@ -120,13 +121,17 @@ function App() {
       <header className="flex justify-center items-center">
         <nav className="flex flex-row">
           <Link
-            className="text-2xl font-extralight mr-3 hover:font-light text-slate-900 dark:text-white"
+            className={`text-2xl ${
+              isInactive ? "font-extralight" : "font-light"
+            } mr-3 hover:text-purple-900 hover:dark:text-purple-300 text-slate-900 dark:text-white`}
             to="/validators"
           >
             Active Validators
           </Link>
           <Link
-            className="text-2xl font-extralight mr-3 hover:font-light text-slate-900 dark:text-white"
+            className={`text-2xl ${
+              isInactive ? "font-light" : "font-extralight"
+            } mr-3 hover:text-purple-900 hover:dark:text-purple-300 text-slate-900 dark:text-white`}
             to="/inactive"
           >
             Inactive Validators
